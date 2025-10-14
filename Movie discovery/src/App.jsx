@@ -4,7 +4,8 @@ import SearchBar from "../components/SearchBar";
 import MovieCard from "../components/MovieCard";
 import "./App.css";
 
-const API_KEY = "http://www.omdbapi.com/?i=tt3896198&apikey=ed86d8ec"; 
+const API_KEY = import.meta.env.VITE_OMDB_API_KEY;
+; 
 
 export default function App() {
   const [movies, setMovies] = useState([]);
