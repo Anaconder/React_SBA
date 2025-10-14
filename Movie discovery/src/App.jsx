@@ -1,10 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
-import SearchBar from "./components/SearchBar";
-import MovieCard from "./components/MovieCard";
+import SearchBar from "../components/SearchBar";
+import MovieCard from "../components/MovieCard";
 import "./App.css";
 
-const API_KEY = "YOUR_OMDB_API_KEY"; 
+const API_KEY = "http://www.omdbapi.com/?i=tt3896198&apikey=ed86d8ec"; 
 
 export default function App() {
   const [movies, setMovies] = useState([]);
