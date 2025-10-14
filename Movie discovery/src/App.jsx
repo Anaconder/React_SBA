@@ -4,7 +4,7 @@ import SearchBar from "./components/SearchBar";
 import MovieCard from "./components/MovieCard";
 import "./App.css";
 
-const API_KEY = "YOUR_OMDB_API_KEY"; // get one free from http://www.omdbapi.com/apikey.aspx
+const API_KEY = "YOUR_OMDB_API_KEY"; 
 
 export default function App() {
   const [movies, setMovies] = useState([]);
