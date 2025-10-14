@@ -1,67 +1,24 @@
-import { useState } from "react";
-import axios from "axios";
-import SearchBar from "../components/SearchBar";
-import MovieCard from "../components/MovieCard";
-import "./App.css";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Search from "./pages/Search";
+import About from "./pages/About";
+import Navbar from "./components/Navbar";
+import "./index.css";
 
-const API_KEY = import.meta.env.VITE_OMDB_API_KEY;
-; 
-
-export default function App() {
-  const [movies, setMovies] = useState([]);
-  const [favorites, setFavorites] = useState(
-    JSON.parse(localStorage.getItem("favorites")) || []
-  );
-
-  const searchMovies = async (query) => {
-    if (!query) return;
-    try {
-      const res = await axios.get(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${query}`);
-      setMovies(res.data.Search || []);
-    } catch (err) {
-      console.error("Error fetching movies:", err);
-    }
-  };
-
-  const toggleFavorite = (movie) => {
-    const updated = favorites.find((f) => f.imdbID === movie.imdbID)
-      ? favorites.filter((f) => f.imdbID !== movie.imdbID)
-      : [...favorites, movie];
-
-    setFavorites(updated);
-    localStorage.setItem("favorites", JSON.stringify(updated));
-  };
-
+function App() {
   return (
-    <div className="app-container">
-      <h1>🎬 Movie Explorer</h1>
-      <SearchBar onSearch={searchMovies} />
-      <div className="movie-grid">
-        {movies.map((m) => (
-          <MovieCard
-            key={m.imdbID}
-            movie={m}
-            isFavorite={favorites.some((f) => f.imdbID === m.imdbID)}
-            onToggleFavorite={toggleFavorite}
-          />
-        ))}
+    <Router>
+      <Navbar />
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
       </div>
-
-      {favorites.length > 0 && (
-        <div className="favorites-section">
-          <h2>❤️ Your Favorites</h2>
-          <div className="movie-grid">
-            {favorites.map((m) => (
-              <MovieCard
-                key={m.imdbID}
-                movie={m}
-                isFavorite={true}
-                onToggleFavorite={toggleFavorite}
-              />
-            ))}
-          </div>
-        </div>
-      )}
-    </div>
+    </Router>
   );
 }
+
+export default App;
