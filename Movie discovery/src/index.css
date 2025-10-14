@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /* :root {
+=======
+:root {
+>>>>>>> 06a336fa8443c5f6eb88633adffd1d20b9f77c92
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -65,4 +69,8 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+<<<<<<< HEAD
 } */
+=======
+}
+>>>>>>> 06a336fa8443c5f6eb88633adffd1d20b9f77c92
