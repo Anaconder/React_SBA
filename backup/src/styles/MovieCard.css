@@ -56,3 +56,15 @@
 .movie-info button.remove:hover {
   background-color: #b71c1c;
 }
+
+.favorite-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.3rem;
+  margin-top: 0.5rem;
+}
+
+.favorite-btn.active {
+  color: #ff4c4c;
+}
