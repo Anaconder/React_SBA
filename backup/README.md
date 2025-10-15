@@ -7,7 +7,7 @@ A React web app built with **Vite** that allows users to search for movies using
 - Display posters, titles, and release years  
 - Dynamic data fetching with `useEffect`  
 - State management with `useState`  
-- 3 simulated pages using `react-router-dom` (Home, Search, About)  
+- 3 simulated pages using `react-router-dom` (Home, Search, Favourites)  
 - Clean responsive CSS styling  
 
 ## Technologies Used
